@@ -21,9 +21,7 @@ PROGRAM FLOW:
 
 4. Get current weather function triggered to pull current weather for all selected cities
 
-
-
-
+5. Selected cities are pulled from a city.list.json file that is provided by openweathermap, as they advise.
 
 """
 

@@ -33,3 +33,24 @@ Information below taken from openweathermap site.
 
 5. Account gets blocked for one hour if you exceed the limit, and another our for each call, then 24 hours after 4 calls ** BE CAREFUL ** 
 
+
+
+## PROJECT 1 Current Weather Processing
+
+PROGRAM: currentWeather.py
+Author: Adam McMurchie
+Summary: This program is designed to pull current weather data from openweatermap API.
+Transactions are only fired once per minute to prevent abuse of the free service and
+ensure that any interface built does not get blocked.
+
+PROGRAM FLOW:
+
+1. Import APIconnect program locally so that API key is used with calls
+
+2. Create and maintain a 'last transaction log file' which captures the date/time of last transaction and the transaction made
+
+3. Check logfile, if last transaction date > 1 minute, proceed with transaction else terminate program
+
+4. Get current weather function triggered to pull current weather for all selected cities
+
+5. Selected cities are pulled from a city.list.json file that is provided by openweathermap, as they advise.
