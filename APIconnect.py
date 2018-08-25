@@ -8,7 +8,7 @@ Next, create a Client object for interacting with the API:
 API Key: blah
 API Secret: blah
 """
-directory = "keys/weatherKEY.txt"
+directory = "../keys/weatherKEY.txt"
 #initialize keys
 api_key = ""
 api_secret = ""
@@ -21,5 +21,5 @@ with open(directory, 'rU') as f:
 
 
 # Define global client
-global client
-client = Client(api_key, api_secret)
+global URLconnection
+URLkey = api_secret
