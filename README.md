@@ -36,12 +36,12 @@ Information below taken from openweathermap site.
 
 
 ## PROJECT 1 Current Weather Processing
-
+```
 PROGRAM: currentWeather.py  
 Author: Adam McMurchie  
 Summary: This program is designed to pull current weather data from openweatermap API.  
 Transactions are only fired once per minute to prevent abuse of the free service and ensure that any interface built does not get blocked.
-
+```
 PROGRAM FLOW:
 
 1. Import APIconnect program locally so that API key is used with calls
