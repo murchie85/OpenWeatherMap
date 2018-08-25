@@ -15,4 +15,7 @@ This repo is my mini project working with OpenWeatherMap API - there are several
 
 # INSTRUCTIONS 
 
-Link to working wiht the API can be found here [OpenWeatherCurrentData](https://openweathermap.org/current)
+Link to working wiht the API can be found here [OpenWeatherCurrentData](https://openweathermap.org/current)  
+
+Store your Keys in a **non-github** linked directory 
+
