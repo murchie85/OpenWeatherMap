@@ -34,7 +34,13 @@ URL = "http://api.openweathermap.org/data/2.5/weather?id=" + selectedCity + "&AP
 
 with urllib.request.urlopen(URL) as url:
     data = json.loads(url.read().decode())
-    print(data)
+
+
+
+print(data.id)
+
+
+
 
 
 
