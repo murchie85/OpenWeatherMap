@@ -23,8 +23,8 @@ PROGRAM FLOW:
 
 5. Selected cities are pulled from a city.list.json file that is provided by openweathermap, as they advise.
 
-"""
 
+SIMPLE STARTER CODE
 
 selectedCity = "2648110"
 # Define the full URL with connecton key to allow transactions
@@ -40,9 +40,31 @@ with urllib.request.urlopen(URL) as url:
 print(data.id)
 
 
+"""
 
 
 
 
 
-#api.openweathermap.org/data/2.5/weather?q=London&APPID=fa3fb62ea1a99d5b8454e9fe3fc05a9a
+# OPEN FILE
+filename = 'weatherReport.json'
+f = open(filename,'w')
+
+selectedCity = ["3333229","2648110", "3333225"] # SELECT CITIES FOR REPORTING
+weatherArray = [] # Empty Array to store responses
+
+
+for city in range(0, len(selectedCity)):
+    # Define the full URL with connecton key to allow transactions, city changes each iteration
+    URL = "http://api.openweathermap.org/data/2.5/weather?id=" + selectedCity[city] + "&APPID=" + APIconnect.URLkey
+    with urllib.request.urlopen(URL) as url:
+        data = json.loads(url.read().decode())
+        print(data)
+    weatherArray.append(data)
+
+
+f.write(str(weatherArray))
+
+f.close() 
+
+
