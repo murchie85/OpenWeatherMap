@@ -2,6 +2,7 @@ import APIconnect
 import urllib, json
 import urllib.request
 from json import dumps
+from datetime import datetime
 
 """
 -----------------------------------------------------------------------------------------------
@@ -43,10 +44,48 @@ print(data.id)
 """
 
 
-
-
 # OPEN FILE
 filename = 'weatherReport.json' 
+
+
+#---------------------------------------------------------------------------------------
+#       CHECK LAST TIME REPORT WAS UPDATED
+#---------------------------------------------------------------------------------------
+
+
+# Get the current time 
+currentTime = datetime.now()
+
+# Pull the last modified date of the file save as last modified date
+try:
+    mtime = os.path.getmtime(filename)
+except OSError:
+    mtime = 0
+last_modified_date = datetime.fromtimestamp(mtime)
+
+
+# Calculate the difference between now and the time it was last modified
+difference = currentTime - last_modified_date
+
+print("current time is " + str(currentTime))
+print("Last modified date is " + str(last_modified_date))
+print("difference between the two are " + str(difference))
+
+
+# If the difference is under one minute - no need to run again (Also prevents abuse of API)
+if(difference.total_seconds() < 60):
+    print("No Need to run - job is up to date")
+    exit()
+
+
+
+
+#---------------------------------------------------------------------------------------
+#       PULL DATA FROM OWM AND WRITE TO REPORT FILE
+#---------------------------------------------------------------------------------------
+
+
+
 f = open(filename,'w')
 selectedCity = ["3333229","2648110", "3333225"] # SELECT CITIES FOR REPORTING
 weatherReport = "" # Empty var to store responses
