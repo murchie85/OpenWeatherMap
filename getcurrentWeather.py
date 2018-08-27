@@ -1,7 +1,7 @@
 import APIconnect
 import urllib, json
 import urllib.request
-
+from json import dumps
 
 """
 -----------------------------------------------------------------------------------------------
@@ -46,27 +46,33 @@ print(data.id)
 
 
 # OPEN FILE
-filename = 'weatherReport.json'
+filename = 'weatherReport.json' 
 f = open(filename,'w')
-
 selectedCity = ["3333229","2648110", "3333225"] # SELECT CITIES FOR REPORTING
-weatherArray = [] # Empty Array to store responses
+weatherReport = "" # Empty var to store responses
+weatherArray = []
 
-
+allData = ""
 for city in range(0, len(selectedCity)):
+    
+    
     # Define the full URL with connecton key to allow transactions, city changes each iteration
     URL = "http://api.openweathermap.org/data/2.5/weather?id=" + selectedCity[city] + "&APPID=" + APIconnect.URLkey
     with urllib.request.urlopen(URL) as url:
         data = json.loads(url.read().decode())
         print(data)
     weatherArray.append(data)
+    
+    
+    
+jsonweatherArray = json.dumps(weatherArray)
 
-
-# chop array ends so when we write it, it will have full json format
-weatherReport = str(weatherArray)[1 : -1]
-f.write(str(weatherReport))
-
+f.write(str(jsonweatherArray))
 f.close() 
+    
+    
+
+
 
 
 
