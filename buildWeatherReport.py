@@ -19,6 +19,7 @@ for x in range(0, len(data)):
 	print("temp        : " + str(data[x]['main']['temp']))
 	print("temp_max    : " + str(data[x]['main']['temp_max']))
 	print("temp_min    : " + str(data[x]['main']['temp_min']))
+	print("Wind info   : " + str(data[x]['wind']))
 
 
 	print("End of City Report \n")
