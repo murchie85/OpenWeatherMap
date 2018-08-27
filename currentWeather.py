@@ -45,7 +45,6 @@ print(data.id)
 
 
 
-
 # OPEN FILE
 filename = 'weatherReport.json'
 f = open(filename,'w')
@@ -63,8 +62,11 @@ for city in range(0, len(selectedCity)):
     weatherArray.append(data)
 
 
-f.write(str(weatherArray))
+# chop array ends so when we write it, it will have full json format
+weatherReport = str(weatherArray)[1 : -1]
+f.write(str(weatherReport))
 
 f.close() 
+
 
 
